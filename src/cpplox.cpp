@@ -1,12 +1,20 @@
 #include "cpplox.hpp"
 #include <iostream>
+#include <fstream>
 
-void CppLox::runFile(std::string fileName) {
-    std::cout << "In runfile: filename = " << fileName << std::endl;
+void CppLox::runFile(const std::string& fileName) {
+    std::ifstream f(fileName);
+    std::stringstream ss;
+    ss << f.rdbuf();
+    this->run(ss.str());
+    f.close();
 }
 
 void CppLox::runPrompt() {
     for(std::string line; std::getline(std::cin, line);) {
+        if(line == "") {
+            return;
+        }
         this->run(line);
     }
 }
