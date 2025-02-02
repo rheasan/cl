@@ -3,8 +3,8 @@
 
 int main(int argc, char** argv) {
     if(argc > 2) {
-        std::cout << "Usage: cpplox [script]";
-        return 0;
+        std::cerr << "Usage: cpplox [script]" << std::endl;
+        return 1;
     }
 
     CppLox cpplox;
