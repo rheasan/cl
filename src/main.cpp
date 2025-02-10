@@ -8,6 +8,7 @@ int main(int argc, char** argv) {
     }
 
     CppLox cpplox;
+
     if(argc == 2) {
         cpplox.runFile(argv[1]);
     } else {
